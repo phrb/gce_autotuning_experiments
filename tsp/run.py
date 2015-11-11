@@ -2,8 +2,11 @@
 
 from subprocess import call
 
-runs = [(4, 16, 180),
-        (2, 64, 180)]
+runs = [( 1, 64, 600),
+        ( 2, 64, 600)]
+        ( 4, 64, 600)]
+        ( 8, 64, 600)]
+        (16, 64, 600)]
 
 instance_number   = runs[0][0]
 parallelism_value = runs[0][1]
