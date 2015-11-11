@@ -12,7 +12,7 @@ instance_number   = runs[0][0]
 parallelism_value = runs[0][1]
 run_time          = runs[0][2]
 
-repo              = "--repo=https://github.com/phrb/gce_autotuning_example.git"
+repo              = "--repo=https://github.com/phrb/gce_autotuning_experiments.git"
 project           = "--project=autotuning-1116"
 interface_path    = "--interface-path=tsp/tuner.py"
 interface_name    = "--interface-name=TSP"
