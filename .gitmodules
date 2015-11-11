@@ -1,0 +1,3 @@
+[submodule "tsp/measurement_client"]
+	path = tsp/measurement_client
+	url = https://github.com/phrb/measurement_client.git
