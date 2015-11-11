@@ -1,3 +1,0 @@
-[submodule "measurement_client"]
-	path = measurement_client
-	url = https://github.com/phrb/measurement_client.git
