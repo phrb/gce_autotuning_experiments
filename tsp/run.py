@@ -2,11 +2,11 @@
 
 from subprocess import call
 
-runs = [( 1, 64, 600),
-        ( 2, 64, 600)]
-        ( 4, 64, 600)]
-        ( 8, 64, 600)]
-        (16, 64, 600)]
+runs = [( 2, 16, 180)]
+#        ( 2, 64, 600)]
+#        ( 4, 64, 600)]
+#        ( 8, 64, 600)]
+#        (16, 64, 600)]
 
 instance_number   = runs[0][0]
 parallelism_value = runs[0][1]
@@ -14,7 +14,7 @@ run_time          = runs[0][2]
 
 repo              = "--repo=https://github.com/phrb/gce_autotuning_example.git"
 project           = "--project=autotuning-1116"
-interface_path    = "--interface-path=tuner.py"
+interface_path    = "--interface-path=tsp/tuner.py"
 interface_name    = "--interface-name=TSP"
 results_log       = "--results-log=results.log"
 
@@ -39,6 +39,8 @@ for i in range(len(runs)):
                                                                   parallelism_value,
                                                                   run_time)
 
+    last_log          = "--log-last={0}/last.txt".format(log_dir)
+
     call("mkdir {0}".format(log_dir), shell = True)
 
     print "[Starting Run {0}]".format(i + 1)
@@ -49,7 +51,8 @@ for i in range(len(runs)):
                                                     interface_name,
                                                     instances,
                                                     parallelism,
-                                                    results_log)
+                                                    results_log,
+                                                    last_log)
     print "[Run {0} is done]".format(i + 1)
 
     retcode = call(cmd, shell = True)

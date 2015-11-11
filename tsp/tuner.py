@@ -22,7 +22,7 @@ argparser.add_argument( "-last", "--log-last",
 argparser.add_argument( "-size", "--instance-size",
                         dest     = "size",
                         type     = int,
-                        required = True,
+                        default  = 532,
                         help     = "Instance size.")
 
 
@@ -45,6 +45,7 @@ class TSP(MeasurementInterface):
 
     def save_final_config(self, configuration):
         print "[Saving Best Configuration]"
+        self.driver.gce_interface.delete_all()
 
         cfg = configuration.data
         tour = cfg[0]

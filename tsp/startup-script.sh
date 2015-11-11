@@ -3,7 +3,7 @@
 echo "[INFO] Starting up Script" > startup.log
 
 # Clone Measurement Server Repository
-git clone https://github.com/phrb/measurement-server.git &>> startup.log
+git clone https://github.com/phrb/gce_autotuning_experiments.git &>> startup.log
 
 echo "[INFO] Startup Done. Starting Server" >> startup.log
 # Start Server
