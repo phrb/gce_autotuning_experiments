@@ -1,5 +1,6 @@
 import argparse
 import logging
+import subprocess
 
 import opentuner
 from opentuner.search.manipulator import ConfigurationManipulator, PermutationParameter
@@ -34,8 +35,8 @@ class TSP(MeasurementInterface):
         for city in tour:
             cmd += str(city + 1) + " "
 
-        result = self.call_program(cmd)
-        cost   = float(result['stdout'])
+        result = subprocess.check_output(cmd)
+        cost   = float(result)
         return opentuner.resultsdb.models.Result(time = cost)
 
     def manipulator(self):
