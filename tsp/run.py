@@ -44,15 +44,15 @@ for i in range(len(runs)):
     call("mkdir {0}".format(log_dir), shell = True)
 
     print "[Starting Run {0}]".format(i + 1)
-    cmd += "{0} {1} {2} {3} {4} {5} {6} {7}".format(stop_after,
-                                                    repo,
-                                                    project,
-                                                    interface_path,
-                                                    interface_name,
-                                                    instances,
-                                                    parallelism,
-                                                    results_log,
-                                                    last_log)
+    cmd += "{0} {1} {2} {3} {4} {5} {6} {7} {8}".format(stop_after,
+                                                        repo,
+                                                        project,
+                                                        interface_path,
+                                                        interface_name,
+                                                        instances,
+                                                        parallelism,
+                                                        results_log,
+                                                        last_log)
     print "[Run {0} is done]".format(i + 1)
 
     retcode = call(cmd, shell = True)

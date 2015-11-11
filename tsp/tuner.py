@@ -13,7 +13,7 @@ log = logging.getLogger(__name__)
 
 parsers = opentuner.argparsers() + measurement_client.argparsers()
 
-argparser = argparse.ArgumentParser(parents=opentuner.argparsers())
+argparser = argparse.ArgumentParser(parents = parsers)
 argparser.add_argument( "-last", "--log-last",
                         dest     = "loglast",
                         type     = str,
