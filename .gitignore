@@ -1,0 +1,4 @@
+opentuner.*
+*.log
+*.swp
+*.pyc
