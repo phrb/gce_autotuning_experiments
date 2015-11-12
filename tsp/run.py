@@ -35,8 +35,6 @@ repo              = "--repo=https://github.com/phrb/gce_autotuning_experiments.g
 project           = "--project=autotuning-1116"
 interface_path    = "--interface-path=tsp/tuner.py"
 interface_name    = "--interface-name=TSP"
-results_log       = "--results-log=results.log"
-
 
 call("mkdir results", shell = True)
 
@@ -61,7 +59,8 @@ for i in range(len(runs)):
                                                                           run_time,
                                                                           j + 1)
 
-        last_log          = "--log-last={0}/last.txt".format(log_dir)
+        results_log = "--results-log={0}/results.log".format(log_dir)
+        last_log    = "--log-last={0}/last.txt".format(log_dir)
 
         call("mkdir {0}".format(log_dir), shell = True)
 
