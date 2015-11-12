@@ -24,7 +24,7 @@ argparser.add_argument( "-last", "--log-last",
 argparser.add_argument( "-size", "--instance-size",
                         dest     = "size",
                         type     = int,
-                        default  = 48,
+                        default  = 532,
                         help     = "Instance size.")
 
 
