@@ -2,11 +2,30 @@
 
 from subprocess import call
 
-runs = [( 2, 2, 180)]
-#        ( 2, 64, 600)]
-#        ( 4, 64, 600)]
-#        ( 8, 64, 600)]
-#        (16, 64, 600)]
+runs              = [# (machines, results/machine, runtime)
+                     # 1 Hour
+                     ( 2,   2, 900),
+#                     ( 2,   8, 900),
+                     ( 2,  16, 900),
+#                     ( 2,  32, 900),
+                     # 1 Hour
+                     ( 4,   4, 900),
+#                     ( 4,  16, 900),
+                     ( 4,  32, 900),
+#                     ( 4,  64, 900),
+                     # 1 Hour
+                     ( 8,   8, 900),
+#                     ( 8,  32, 900),
+                     ( 8,  64, 900),
+#                     ( 8, 128, 900),
+                     # 1 Hour
+                     (16,  16, 900),
+#                     (16,  64, 900),
+                     (16, 128, 900),
+#                     (16, 256, 900)
+                     ]
+
+executions        = 4
 
 instance_number   = runs[0][0]
 parallelism_value = runs[0][1]
@@ -34,25 +53,28 @@ for i in range(len(runs)):
     parallelism       = "--parallelism={0}".format(parallelism_value)
     stop_after        = "--stop-after={0}".format(run_time)
 
-    log_dir = "results/run_{0}_inst_{1}_para_{2}_time_{3}".format(i + 1,
-                                                                  instance_number,
-                                                                  parallelism_value,
-                                                                  run_time)
+    for j in range(executions):
+        # (run_id, instances, parallelism, runtime, run_number)
+        log_dir = "results/run_{0}_inst_{1}_para_{2}_time_{3}_{4}".format(i + 1,
+                                                                          instance_number,
+                                                                          parallelism_value,
+                                                                          run_time,
+                                                                          j + 1)
 
-    last_log          = "--log-last={0}/last.txt".format(log_dir)
+        last_log          = "--log-last={0}/last.txt".format(log_dir)
 
-    call("mkdir {0}".format(log_dir), shell = True)
+        call("mkdir {0}".format(log_dir), shell = True)
 
-    print "[Starting Run {0}]".format(i + 1)
-    cmd += "{0} {1} {2} {3} {4} {5} {6} {7} {8}".format(stop_after,
-                                                        repo,
-                                                        project,
-                                                        interface_path,
-                                                        interface_name,
-                                                        instances,
-                                                        parallelism,
-                                                        results_log,
-                                                        last_log)
-    print "[Run {0} is done]".format(i + 1)
+        print "[Starting Run {0}]".format(i + 1)
+        cmd += "{0} {1} {2} {3} {4} {5} {6} {7} {8}".format(stop_after,
+                                                            repo,
+                                                            project,
+                                                            interface_path,
+                                                            interface_name,
+                                                            instances,
+                                                            parallelism,
+                                                            results_log,
+                                                            last_log)
 
-    retcode = call(cmd, shell = True)
+        retcode = call(cmd, shell = True)
+        print "[Run {0} is done]".format(i + 1)
