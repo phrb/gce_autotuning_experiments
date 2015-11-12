@@ -40,7 +40,7 @@ class TSP(MeasurementInterface):
         logger.debug("Executing: {0}".format(cmd))
         logger.debug("Directory: {0}".format(os.getcwd()))
 
-        result = subprocess.check_output(cmd)
+        result = subprocess.check_output(cmd, shell = True)
         cost   = float(result)
         return opentuner.resultsdb.models.Result(time = cost)
 
