@@ -35,6 +35,7 @@ class TSP(MeasurementInterface):
         for city in tour:
             cmd += str(city + 1) + " "
 
+        print cmd
         result = subprocess.check_output(cmd)
         cost   = float(result)
         return opentuner.resultsdb.models.Result(time = cost)
