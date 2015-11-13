@@ -4,28 +4,28 @@ from subprocess import call
 
 runs              = [# (machines, results/machine, runtime)
                      # 1 Hour
-                     ( 2,   2, 900),
+#                     ( 2,   2, 900)OK,
 #                     ( 2,   8, 900),
-                     ( 2,  16, 900),
+#                     ( 2,  16, 900)OK,
 #                     ( 2,  32, 900),
                      # 1 Hour
-                     ( 4,   4, 900),
+#                     ( 4,   4, 900),
 #                     ( 4,  16, 900),
                      ( 4,  32, 900),
 #                     ( 4,  64, 900),
                      # 1 Hour
-                     ( 8,   8, 900),
+#                     ( 8,   8, 900),
 #                     ( 8,  32, 900),
                      ( 8,  64, 900),
 #                     ( 8, 128, 900),
                      # 1 Hour
-                     (16,  16, 900),
+#                     (16,  16, 900),
 #                     (16,  64, 900),
                      (16, 128, 900),
 #                     (16, 256, 900)
                      ]
 
-executions        = 4
+executions        = 1
 
 instance_number   = runs[0][0]
 parallelism_value = runs[0][1]
@@ -43,9 +43,9 @@ for i in range(len(runs)):
 
     cmd = "/usr/bin/env python2.7 tuner.py "
 
-    instance_number   = runs[0][0]
-    parallelism_value = runs[0][1]
-    run_time          = runs[0][2]
+    instance_number   = runs[i][0]
+    parallelism_value = runs[i][1]
+    run_time          = runs[i][2]
 
     instances         = "--instances={0}".format(instance_number)
     parallelism       = "--parallelism={0}".format(parallelism_value)
@@ -76,4 +76,7 @@ for i in range(len(runs)):
                                                             last_log)
 
         retcode = call(cmd, shell = True)
+
+        call("rm -rf opentuner.log opentuner.db", shell = True)
+
         print "[Run {0} is done]".format(i + 1)
