@@ -33,7 +33,7 @@ argparser.add_argument( "-size", "--instance-size",
 
 class TSP(MeasurementInterface):
     def run(self, desired_result, input, limit):
-        filename = ".tmp/{0}".format(uuid4())
+        filename = "{0}".format(uuid4())
 
         cfg  = desired_result.configuration.data
         tour = cfg[0]
@@ -89,7 +89,6 @@ class TSP(MeasurementInterface):
                              measurement_driver = MeasurementClient).main()
 
 if __name__ == '__main__':
-    subprocess.call("mkdir .tmp", shell = True)
     args = argparser.parse_args()
     LOG_FILE = args.loglast
     SIZE     = args.size
