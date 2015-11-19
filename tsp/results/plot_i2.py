@@ -110,6 +110,6 @@ ax.set_ylabel("Solution Cost")
 plt.legend((i2_p2_b, i2_p8_b, i2_p16_b, i2_p32_b, ot_b),
            ('2 Instances, 2 Requests', '2 Instances, 8 Requests',
             '2 Instances, 16 Requests', '2 Instances, 32 Requests',
-            'Sequential'), prop = {'size': 16})
+            'Sequential'), prop = {'size' : 16})
 
 fig.savefig('i2_p_n_comparison.eps', format = 'eps', dpi = 1000)
