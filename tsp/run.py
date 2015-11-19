@@ -6,7 +6,7 @@ runs              = [# (machines, results/machine, runtime)
                      # 1 Hour
 #                     ( 2,   2, 900),
 #                     ( 2,   8, 900),
-#                     ( 2,  16, 900),
+                     ( 2,  16, 900),
 #                     ( 2,  32, 900),
                      # 1 Hour
 #                     ( 4,   4, 900),
