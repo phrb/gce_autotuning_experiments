@@ -89,6 +89,7 @@ class TSP(MeasurementInterface):
                              measurement_driver = MeasurementClient).main()
 
 if __name__ == '__main__':
+    subprocess.call("mkdir .tmp", shell = True)
     args = argparser.parse_args()
     LOG_FILE = args.loglast
     SIZE     = args.size

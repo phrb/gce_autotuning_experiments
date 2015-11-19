@@ -11,7 +11,7 @@ runs              = [# (machines, results/machine, runtime)
                      # 1 Hour
 #                     ( 4,   4, 900),
 #                     ( 4,  16, 900),
-#                     ( 4,  32, 900),
+                     ( 4,  32, 900),
 #                     ( 4,  64, 900),
                      # 1 Hour
 #                     ( 8,   8, 900),
@@ -21,7 +21,7 @@ runs              = [# (machines, results/machine, runtime)
                      # 1 Hour
 #                     (16,  16, 900),
 #                     (16,  64, 900),
-                     (16, 128, 900),
+#                     (16, 128, 900),
 #                     (16, 256, 900)
                      ]
 
@@ -35,8 +35,6 @@ repo              = "--repo=https://github.com/phrb/gce_autotuning_experiments.g
 project           = "--project=autotuning-1116"
 interface_path    = "--interface-path=tsp/tuner.py"
 interface_name    = "--interface-name=TSP"
-
-call("mkdir .tmp", shell = True)
 
 for i in range(len(runs)):
     print "[Initializing Tuning Run {0}]".format(i + 1)
@@ -80,5 +78,3 @@ for i in range(len(runs)):
         call("rm -rf opentuner.log opentuner.db", shell = True)
 
         print "[Run {0} is done]".format(i + 1)
-
-call("rm -r .tmp", shell = True)
