@@ -6,7 +6,7 @@ runs              = [# (machines, results/machine, runtime)
                      # 1 Hour
 #                     ( 2,   2, 900),
 #                     ( 2,   8, 900),
-                     ( 2,  16, 900),
+#                     ( 2,  16, 900),
 #                     ( 2,  32, 900),
                      # 1 Hour
 #                     ( 4,   4, 900),
@@ -21,7 +21,7 @@ runs              = [# (machines, results/machine, runtime)
                      # 1 Hour
 #                     (16,  16, 900),
 #                     (16,  64, 900),
-#                     (16, 128, 900),
+                     (16, 128, 900),
 #                     (16, 256, 900)
                      ]
 
@@ -36,7 +36,7 @@ project           = "--project=autotuning-1116"
 interface_path    = "--interface-path=tsp/tuner.py"
 interface_name    = "--interface-name=TSP"
 
-call("mkdir results", shell = True)
+call("mkdir .tmp", shell = True)
 
 for i in range(len(runs)):
     print "[Initializing Tuning Run {0}]".format(i + 1)
@@ -53,11 +53,11 @@ for i in range(len(runs)):
 
     for j in range(executions):
         # (run_id, instances, parallelism, runtime, run_number)
-        log_dir = "results/run_{0}_inst_{1}_para_{2}_time_{3}_{4}".format(i + 1,
-                                                                          instance_number,
-                                                                          parallelism_value,
-                                                                          run_time,
-                                                                          j + 1)
+        log_dir = "results/pla85900/run_{0}_inst_{1}_para_{2}_time_{3}_{4}".format(i + 1,
+                                                                                   instance_number,
+                                                                                   parallelism_value,
+                                                                                   run_time,
+                                                                                   j + 1)
 
         results_log = "--results-log={0}/results.log".format(log_dir)
         last_log    = "--log-last={0}/last.txt".format(log_dir)
@@ -80,3 +80,5 @@ for i in range(len(runs)):
         call("rm -rf opentuner.log opentuner.db", shell = True)
 
         print "[Run {0} is done]".format(i + 1)
+
+call("rm -r .tmp", shell = True)
