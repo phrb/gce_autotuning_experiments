@@ -4,13 +4,13 @@ from subprocess import call
 
 runs              = [# (machines, results/machine, runtime)
                      # 4 Hours
-#                     ( 2,   2, 900),
-#                     ( 2,   8, 900),
+                     ( 2,   2, 900),
+                     ( 2,   8, 900),
                      ( 2,  16, 900),
                      ( 2,  32, 900),
                      # 4 Hours
-#                     ( 4,   4, 900),
-#                     ( 4,  16, 900),
+                     ( 4,   4, 900),
+                     ( 4,  16, 900),
                      ( 4,  32, 900),
                      ( 4,  64, 900),
                      # 4 Hours
