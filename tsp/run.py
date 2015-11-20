@@ -3,29 +3,29 @@
 from subprocess import call
 
 runs              = [# (machines, results/machine, runtime)
-                     # 1 Hour
+                     # 4 Hours
 #                     ( 2,   2, 900),
 #                     ( 2,   8, 900),
-#                     ( 2,  16, 900),
-#                     ( 2,  32, 900),
-                     # 1 Hour
+                     ( 2,  16, 900),
+                     ( 2,  32, 900),
+                     # 4 Hours
 #                     ( 4,   4, 900),
 #                     ( 4,  16, 900),
                      ( 4,  32, 900),
-#                     ( 4,  64, 900),
-                     # 1 Hour
+                     ( 4,  64, 900),
+                     # 4 Hours
 #                     ( 8,   8, 900),
 #                     ( 8,  32, 900),
 #                     ( 8,  64, 900),
 #                     ( 8, 128, 900),
-                     # 1 Hour
+                     # 4 Hours
 #                     (16,  16, 900),
 #                     (16,  64, 900),
 #                     (16, 128, 900),
 #                     (16, 256, 900)
                      ]
 
-executions        = 1
+executions        = 4
 
 instance_number   = runs[0][0]
 parallelism_value = runs[0][1]
