@@ -16,6 +16,7 @@ font = {'family' : 'serif',
 
 mpl.rc('font', **font)
 
+<<<<<<< HEAD
 i4_p64_path       = "run_8_inst_4_para_64_time_900_2/"
 i4_p64_data       = []
 i4_p64_sample_run = [[], []]
@@ -29,6 +30,21 @@ i4_p32_data        = []
 i4_p32_sample_run  = [[], []]
 
 i4_p16_path       = "run_6_inst_4_para_16_time_900_4/"
+=======
+i4_p64_path       = "run_2_inst_4_para_64_time_900_1/"
+i4_p64_data       = []
+i4_p64_sample_run = [[], []]
+
+i4_p4_path        = "run_3_inst_4_para_4_time_900_1/"
+i4_p4_data        = []
+i4_p4_sample_run  = [[], []]
+
+i4_p32_path        = "run_1_inst_4_para_32_time_900_1/"
+i4_p32_data        = []
+i4_p32_sample_run  = [[], []]
+
+i4_p16_path       = "run_1_inst_4_para_16_time_900_1/"
+>>>>>>> c10136165b740c1f8714baee42fe0dfed3cb9295
 i4_p16_data       = []
 i4_p16_sample_run = [[], []]
 
