@@ -16,19 +16,19 @@ font = {'family' : 'serif',
 
 mpl.rc('font', **font)
 
-i4_p64_path       = "run_2_inst_4_para_64_time_900_1/"
+i4_p64_path       = "run_3_inst_8_para_128_time_900_3/"
 i4_p64_data       = []
 i4_p64_sample_run = [[], []]
 
-i4_p4_path        = "run_3_inst_4_para_4_time_900_1/"
+i4_p4_path        = "run_1_inst_8_para_8_time_900_4/"
 i4_p4_data        = []
 i4_p4_sample_run  = [[], []]
 
-i4_p32_path        = "run_1_inst_4_para_32_time_900_1/"
+i4_p32_path        = "run_1_inst_8_para_64_time_900_1/"
 i4_p32_data        = []
 i4_p32_sample_run  = [[], []]
 
-i4_p16_path       = "run_1_inst_4_para_16_time_900_1/"
+i4_p16_path       = "run_2_inst_8_para_32_time_900_3/"
 i4_p16_data       = []
 i4_p16_sample_run = [[], []]
 
@@ -81,10 +81,10 @@ ax.set_xlim([-4, max(max(i4_p64_sample_run[0]), max(i4_p4_sample_run[0]),
 
 ax.set_ylim([min(min(i4_p64_sample_run[1]), min(i4_p4_sample_run[1]),
                  min(i4_p32_sample_run[1]), min(i4_p16_sample_run[1]),
-                 min(ot_sample_run[1])) - 50000,
+                 min(ot_sample_run[1])) - 1000000,
              max(max(i4_p64_sample_run[1]), max(i4_p4_sample_run[1]),
                  max(i4_p64_sample_run[1]), max(i4_p4_sample_run[1]),
-                 max(ot_sample_run[1])) + 50000])
+                 max(ot_sample_run[1])) + 1000000])
 
 i4_p64_b = ax.scatter(i4_p64_sample_run[0], i4_p64_sample_run[1], marker = 'x', color = 'c')
 ax.plot(i4_p64_sample_run[0], i4_p64_sample_run[1], color = 'c')
@@ -108,8 +108,8 @@ ax.set_xlabel("Tuning Time")
 ax.set_ylabel("Solution Cost")
 
 plt.legend((i4_p4_b, i4_p16_b, i4_p32_b, i4_p64_b, ot_b),
-           ('4 Instances, 4 Requests', '4 Instances, 16 Requests',
-            '4 Instances, 32 Requests', '4 Instances, 64 Requests',
+           ('8 Instances, 8 Requests', '8 Instances, 32 Requests',
+            '8 Instances, 64 Requests', '8 Instances, 128 Requests',
             'Sequential'), prop = {'size': 16})
 
-fig.savefig('i4_p_n_comparison.eps', format = 'eps', dpi = 1000)
+fig.savefig('i8_p_n_comparison.eps', format = 'eps', dpi = 1000)

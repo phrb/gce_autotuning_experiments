@@ -81,10 +81,10 @@ ax.set_xlim([-4, max(max(i2_p16_sample_run[0]), max(i2_p2_sample_run[0]),
 
 ax.set_ylim([min(min(i2_p16_sample_run[1]), min(i2_p2_sample_run[1]),
                  min(i2_p8_sample_run[1]), min(i2_p32_sample_run[1]),
-                 min(ot_sample_run[1])) - 50000,
+                 min(ot_sample_run[1])) - 1000000,
              max(max(i2_p16_sample_run[1]), max(i2_p2_sample_run[1]),
                  max(i2_p8_sample_run[1]), max(i2_p32_sample_run[1]),
-                 max(ot_sample_run[1])) + 50000])
+                 max(ot_sample_run[1])) + 1000000])
 
 i2_p16_b = ax.scatter(i2_p16_sample_run[0], i2_p16_sample_run[1], marker = 'x', color = 'c')
 ax.plot(i2_p16_sample_run[0], i2_p16_sample_run[1], color = 'c')
