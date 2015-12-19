@@ -51,11 +51,11 @@ for i in range(len(runs)):
 
     for j in range(executions):
         # (run_id, instances, parallelism, runtime, run_number)
-        log_dir = "results/pla85900/run_{0}_inst_{1}_para_{2}_time_{3}_{4}".format(i + 1,
-                                                                                   instance_number,
-                                                                                   parallelism_value,
-                                                                                   run_time,
-                                                                                   j + 1)
+        log_dir = "results/pla85900_HAL14k/run_{0}_inst_{1}_para_{2}_time_{3}_{4}".format(i + 1,
+                                                                                          instance_number,
+                                                                                          parallelism_value,
+                                                                                          run_time,
+                                                                                          j + 1)
 
         results_log = "--results-log={0}/results.log".format(log_dir)
         last_log    = "--log-last={0}/last.txt".format(log_dir)
