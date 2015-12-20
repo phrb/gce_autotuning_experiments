@@ -4,10 +4,10 @@ from subprocess import call
 
 runs              = [# (machines, results/machine, runtime)
                      # 4 Hours
-                     ( 2, 128, 900),
-                     ( 2, 256, 900),
 #                     ( 2,  16, 900),
 #                     ( 2,  32, 900),
+                     ( 2, 128, 900),
+                     ( 2, 256, 900),
                      # 4 Hours
                      ( 4, 256, 900),
                      ( 4, 512, 900),
@@ -62,7 +62,7 @@ for i in range(len(runs)):
 
         call("mkdir {0}".format(log_dir), shell = True)
 
-        print "[Starting Run {0}]".format(i + 1)
+        print "[Starting Sub-run {0} of Run {1}]".format(j + 1, i + 1)
         cmd += "{0} {1} {2} {3} {4} {5} {6} {7} {8}".format(stop_after,
                                                             repo,
                                                             project,
@@ -77,4 +77,4 @@ for i in range(len(runs)):
 
         call("rm -rf opentuner.log opentuner.db", shell = True)
 
-        print "[Run {0} is done]".format(i + 1)
+        print "[Sub-run {0} of Run {1} is done]".format(j + 1, i + 1)
