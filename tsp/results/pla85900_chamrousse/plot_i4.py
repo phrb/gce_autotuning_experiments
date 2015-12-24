@@ -12,23 +12,23 @@ plt.rc('text', usetex = True)
 plt.rc('font', family = 'serif')
 
 font = {'family' : 'serif',
-        'size'   : 22}
+        'size'   : 16}
 
 mpl.rc('font', **font)
 
-i4_p64_path       = "run_8_inst_4_para_64_time_900_2/"
+i4_p64_path       = "inst_4_para_64/run_8_inst_4_para_64_time_900_2/"
 i4_p64_data       = []
 i4_p64_sample_run = [[], []]
 
-i4_p4_path        = "run_5_inst_4_para_4_time_900_4/"
+i4_p4_path        = "inst_4_para_4/run_5_inst_4_para_4_time_900_4/"
 i4_p4_data        = []
 i4_p4_sample_run  = [[], []]
 
-i4_p32_path        = "run_7_inst_4_para_32_time_900_3/"
+i4_p32_path        = "inst_4_para_32/run_7_inst_4_para_32_time_900_3/"
 i4_p32_data        = []
 i4_p32_sample_run  = [[], []]
 
-i4_p16_path       = "run_6_inst_4_para_16_time_900_4/"
+i4_p16_path       = "inst_4_para_16/run_6_inst_4_para_16_time_900_4/"
 i4_p16_data       = []
 i4_p16_sample_run = [[], []]
 
@@ -72,7 +72,7 @@ with open(ot_path + "sequential.txt") as file:
         ot_sample_run[0].append(float(point[0]))
         ot_sample_run[1].append(float(point[1]))
 
-fig = plt.figure(1, figsize=(9, 6))
+fig = plt.figure(1, figsize=(7, 6))
 ax = fig.add_subplot(111)
 
 ax.set_xlim([-4, max(max(i4_p64_sample_run[0]), max(i4_p4_sample_run[0]),
@@ -110,6 +110,6 @@ ax.set_ylabel("Solution Cost")
 plt.legend((i4_p4_b, i4_p16_b, i4_p32_b, i4_p64_b, ot_b),
            ('4 Instances, 4 Requests', '4 Instances, 16 Requests',
             '4 Instances, 32 Requests', '4 Instances, 64 Requests',
-            'Sequential'), prop = {'size': 16})
+            'Sequential'), prop = {'size': 14})
 
 fig.savefig('i4_p_n_comparison.eps', format = 'eps', dpi = 1000)
